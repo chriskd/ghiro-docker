@@ -8,4 +8,4 @@
 /usr/sbin/apache2 -D FOREGROUND
 sleep 5
 # Start processor.
-cd /var/www/ghiro && python manage.py process &
+cd /var/www/ghiro && python manage.py process

@@ -48,13 +48,13 @@ MANAGERS = ADMINS
 # Allow verbose debug error message in case of application fault.
 # It's strongly suggested to set it to False if you are serving the
 # web application from a web server front-end (i.e. Apache).
-DEBUG = True
+DEBUG = False
 # A list of strings representing the host/domain names that this Django site
 # can serve.
 # Values in this list can be fully qualified names (e.g. 'www.example.com').
 # When DEBUG is True or when running tests, host validation is disabled; any
 # host will be accepted. Thus it's usually only necessary to set it in production.
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "0.0.0.0", "10.0.0.2"]
 # Automatically checks once a day for updates.
 # Set it to False to disable update check.
 UPDATE_CHECK = True

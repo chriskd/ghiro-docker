@@ -34,7 +34,7 @@ COPY files/*.txt /tmp/
 RUN apt-get update \
  && xargs apt-get install -y < /tmp/deb-packages.txt \
  && rm /tmp/deb-packages.txt \
- && pip install --upgrade pip \
+ && pip install --no-cache-dir --upgrade "pip<21.0" \
  && pip install --upgrade -r /tmp/pypi-packages.txt \
  && rm /tmp/pypi-packages.txt \
  && git clone https://github.com/GrahamDumpleton/mod_wsgi.git /mod_wsgi \
@@ -78,15 +78,14 @@ RUN a2dissite 000-default \
  && a2ensite ghiro \
  && chown -R www-data:www-data /var/www/ghiro/
 
-EXPOSE 80
-
-COPY start.sh /start.sh
-RUN chmod 0755 /start.sh
-CMD ["bash", "start.sh"]
-
 COPY wait-for-it.sh /wait-for-it.sh
 RUN chmod 0755 wait-for-it.sh
 
-
 COPY install.sh /install.sh
 RUN chmod 0755 /install.sh
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod 0755 /entrypoint.sh
+
+EXPOSE 80
+
