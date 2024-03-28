@@ -1,3 +1,10 @@
+Update: 2024-03-28
+
+I'm far from a Docker expert, but I've managed to stumble my way through updating this repo so that it _should_ work without much fuss. Please take note of the configuration settings in local_settings.py - very little (read: none) care went into making sure this had safe and secure defaults, so ensure you're running it in a secure environment that is not exposed to the internet. A lot of the packages used are several years old and likely come with several fun CVEs.
+
+---
+
+
 To install Ghiro using Docker, from the root of this project run
 
 ```
